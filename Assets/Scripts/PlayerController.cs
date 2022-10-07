@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+	//プレイヤーの移動スピード
 	[SerializeField] private float speed;
 
 	//移動係数
@@ -19,18 +20,20 @@ public class PlayerController : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		//position置き換え
 		Vector3 pos = this.transform.position;
 
+		//斜め入力時の移動速度Down
 		if (Input.GetKey(KeyCode.A) == true || Input.GetKey(KeyCode.D) == true)
 		{
 			if (Input.GetKey(KeyCode.W) == true || Input.GetKey(KeyCode.S) == true)
 			{
-				//移動係数を０．７１に設定
+				//移動係数を0.71に設定
 				move = 0.71f;
 			}
 			else
 			{
-				//斜めじゃなければ１．０に設定
+				//斜めじゃなければ1.0に設定
 				move = 1.0f;
 			}
 
@@ -40,6 +43,7 @@ public class PlayerController : MonoBehaviour
 			move = 1.0f;
 		}
 
+		//移動処理
 		if (Input.GetKey(KeyCode.A))
 		{
 			pos.x += -1 * speed * move;
@@ -57,6 +61,7 @@ public class PlayerController : MonoBehaviour
 			pos.z += -1 * speed * move;
 		}
 
+		//置き換えたものを代入
 		transform.position = pos;
 	}
 }
