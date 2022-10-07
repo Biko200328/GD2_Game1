@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 			pos.z += -1 * speed * move;
 		}
 
-		//’u‚«Š·‚¦‚½‚à‚Ì‚ğ‘ã“ü
+		//”’l‚ğ–ß‚·
 		transform.position = pos;
 	}
 }
