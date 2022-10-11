@@ -24,9 +24,11 @@ public class PlayerController : MonoBehaviour
 		Vector3 pos = this.transform.position;
 
 		//ŽÎ‚ß“ü—ÍŽž‚ÌˆÚ“®‘¬“xDown
-		if (Input.GetKey(KeyCode.A) == true || Input.GetKey(KeyCode.D) == true)
+		if (Input.GetKey(KeyCode.A) == true || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0
+			|| Input.GetKey(KeyCode.D) == true || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0)
 		{
-			if (Input.GetKey(KeyCode.W) == true || Input.GetKey(KeyCode.S) == true)
+			if (Input.GetKey(KeyCode.W) == true || Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("Vertical") > 0
+				|| Input.GetKey(KeyCode.S) == true || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("Vertical") < 0)
 			{
 				//ˆÚ“®ŒW”‚ð0.71‚ÉÝ’è
 				move = 0.71f;
@@ -38,7 +40,8 @@ public class PlayerController : MonoBehaviour
 			}
 
 		}
-		else if (Input.GetKey(KeyCode.W) == true || Input.GetKey(KeyCode.S) == true)
+		else if (Input.GetKey(KeyCode.W) == true || Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("Vertical") > 0
+		|| Input.GetKey(KeyCode.S) == true || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("Vertical") < 0)
 		{
 			move = 1.0f;
 		}
