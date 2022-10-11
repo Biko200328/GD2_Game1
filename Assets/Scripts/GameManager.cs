@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -34,6 +35,11 @@ public class GameManager : MonoBehaviour
 		{
 			//Offˆ—‚ğÀs‚³‚¹‚é
 			ProtoGimmickOff();
+		}
+
+		if(Input.GetKeyDown(KeyCode.R))
+		{
+			SceneReset();
 		}
 	}
 
@@ -69,5 +75,11 @@ public class GameManager : MonoBehaviour
 		}
 		//”’l‚ğ–ß‚·
 		slope.transform.position = slopePos;
+	}
+
+	public void SceneReset()
+	{
+		string activeSceneName = SceneManager.GetActiveScene().name;
+		SceneManager.LoadScene(activeSceneName);
 	}
 }
