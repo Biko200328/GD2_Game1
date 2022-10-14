@@ -28,6 +28,11 @@ public class PlayerController : MonoBehaviour
 			inputHorizontal = Input.GetAxisRaw("Horizontal");
 			inputVertical = Input.GetAxisRaw("Vertical");
 		}
+		else
+		{
+			inputHorizontal = Input.GetAxis("cHorizontalL");
+			inputVertical = Input.GetAxis("cVerticalL");
+		}
 	}
 
 	void FixedUpdate()

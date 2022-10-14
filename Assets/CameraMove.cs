@@ -38,5 +38,14 @@ public class CameraMove : MonoBehaviour
 				transform.RotateAround(targetPos, transform.right, -mouseInputY * Time.deltaTime * 200f);
 			}
 		}
+		else
+		{
+			float cInputX = Input.GetAxis("cHorizontalR");
+			float cInputY = Input.GetAxis("cVerticalR");
+			// targetの位置のY軸を中心に、回転（公転）する
+			transform.RotateAround(targetPos, Vector3.up, cInputX * Time.deltaTime * 200f);
+			// カメラの垂直移動（※角度制限なし、必要が無ければコメントアウト）
+			transform.RotateAround(targetPos, transform.right, -cInputY * Time.deltaTime * 200f);
+		}
 	}
 }
