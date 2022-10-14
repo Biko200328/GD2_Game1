@@ -10,61 +10,36 @@ public class PlayerController : MonoBehaviour
 	//移動係数
 	[SerializeField]private  float move = 1.0f;
 
+	float inputHorizontal;
+	float inputVertical;
+	Rigidbody rb;
 
-	// Start is called before the first frame update
 	void Start()
 	{
-
+		rb = GetComponent<Rigidbody>();
 	}
 
-	// Update is called once per frame
 	void Update()
 	{
-		//position置き換え
-		Vector3 pos = this.transform.position;
+		inputHorizontal = Input.GetAxisRaw("Horizontal");
+		inputVertical = Input.GetAxisRaw("Vertical");
+	}
 
-		//斜め入力時の移動速度Down
-		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0
-			|| Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0)
-		{
-			if (Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("Vertical") > 0
-				|| Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("Vertical") < 0)
-			{
-				//移動係数を0.71に設定
-				move = 0.71f;
-			}
-			else
-			{
-				//斜めじゃなければ1.0に設定
-				move = 1.0f;
-			}
+	void FixedUpdate()
+	{
+		// カメラの方向から、X-Z平面の単位ベクトルを取得
+		Vector3 cameraForward = Vector3.Scale(Camera.main.transform.forward, new Vector3(1, 0, 1)).normalized;
 
-		}
-		else if (Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("Vertical") > 0
-		 || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("Vertical") < 0)
-		{
-			move = 1.0f;
-		}
+		// 方向キーの入力値とカメラの向きから、移動方向を決定
+		Vector3 moveForward = cameraForward * inputVertical + Camera.main.transform.right * inputHorizontal;
 
-		//移動処理
-		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0)
-		{
-			pos.x += -1 * speed * move;
-		}
-		if ( Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0)
-		{
-			pos.x += 1 * speed * move;
-		}
-		if (Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("Vertical") > 0)
-		{
-			pos.z += 1 * speed * move;
-		}
-		if (Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("Vertical") < 0)
-		{
-			pos.z += -1 * speed * move;
-		}
+		// 移動方向にスピードを掛ける。ジャンプや落下がある場合は、別途Y軸方向の速度ベクトルを足す。
+		rb.velocity = moveForward * speed + new Vector3(0, rb.velocity.y, 0);
 
-		//数値を戻す
-		transform.position = pos;
+		// キャラクターの向きを進行方向に
+		if (moveForward != Vector3.zero)
+		{
+			transform.rotation = Quaternion.LookRotation(moveForward);
+		}
 	}
 }
