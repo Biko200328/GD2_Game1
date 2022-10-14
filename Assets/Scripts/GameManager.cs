@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 	//コントローラーが接続されているかのフラグ
 	public bool isConnection = false;
 
+	[SerializeField] Text describe;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -30,6 +32,15 @@ public class GameManager : MonoBehaviour
 	{
 		//コントローラー接続チェック
 		isConnectController();
+
+		if(isConnection)
+		{
+			describe.text = "Lスティックでプレイヤー移動\r\nRスティックでカメラ移動";
+		}
+		else
+		{
+			describe.text = "十字もしくはWASDでプレイヤー移動\r\n左クリック長押しでカメラ操作";
+		}
 
 		//on(感圧版にのっている)時
 		if (isProto == true)
@@ -44,6 +55,7 @@ public class GameManager : MonoBehaviour
 			ProtoGimmickOff();
 		}
 
+		//Rキーでシーンリセット
 		if (Input.GetKeyDown(KeyCode.R))
 		{
 			SceneReset();
