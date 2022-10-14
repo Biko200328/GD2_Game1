@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
 	//プレイヤーの移動スピード
 	[SerializeField] private float speed;
 
+	GameManager gameManager;
+
 	float inputHorizontal;
 	float inputVertical;
 	Rigidbody rb;
@@ -14,12 +16,18 @@ public class PlayerController : MonoBehaviour
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
+
+		GameObject managerObj = GameObject.Find("GameManager");
+		gameManager = managerObj.GetComponent<GameManager>();
 	}
 
 	void Update()
 	{
-		inputHorizontal = Input.GetAxisRaw("Horizontal");
-		inputVertical = Input.GetAxisRaw("Vertical");
+		if(gameManager.isConnection == false)
+		{
+			inputHorizontal = Input.GetAxisRaw("Horizontal");
+			inputVertical = Input.GetAxisRaw("Vertical");
+		}
 	}
 
 	void FixedUpdate()
