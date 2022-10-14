@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
+	GameObject targetObj;
 	Vector3 targetPos;
 
 	void Start()
 	{
-		
+		targetObj = GameObject.Find("TargetObj");
+		targetPos = targetObj.transform.position;
 	}
 
 	void Update()
 	{
+		// targetの移動量分、自分（カメラ）も移動する
+		transform.position += targetObj.transform.position - targetPos;
+		targetPos = targetObj.transform.position;
 		// マウスの右クリックを押している間
 		if (Input.GetMouseButton(1))
 		{
