@@ -7,9 +7,6 @@ public class PlayerController : MonoBehaviour
 	//プレイヤーの移動スピード
 	[SerializeField] private float speed;
 
-	//移動係数
-	[SerializeField]private  float move = 1.0f;
-
 	float inputHorizontal;
 	float inputVertical;
 	Rigidbody rb;
