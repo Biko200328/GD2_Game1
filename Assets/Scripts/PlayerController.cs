@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float speed;
 
 	//ˆÚ“®ŒW”
-	private float move = 1.0f;
+	[SerializeField]private  float move = 1.0f;
 
 
 	// Start is called before the first frame update
@@ -24,11 +24,11 @@ public class PlayerController : MonoBehaviour
 		Vector3 pos = this.transform.position;
 
 		//Î‚ß“ü—Í‚ÌˆÚ“®‘¬“xDown
-		if (Input.GetKey(KeyCode.A) == true || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0
-			|| Input.GetKey(KeyCode.D) == true || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0)
+		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0
+			|| Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0)
 		{
-			if (Input.GetKey(KeyCode.W) == true || Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("Vertical") > 0
-				|| Input.GetKey(KeyCode.S) == true || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("Vertical") < 0)
+			if (Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("Vertical") > 0
+				|| Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("Vertical") < 0)
 			{
 				//ˆÚ“®ŒW”‚ğ0.71‚Éİ’è
 				move = 0.71f;
@@ -40,26 +40,26 @@ public class PlayerController : MonoBehaviour
 			}
 
 		}
-		else if (Input.GetKey(KeyCode.W) == true || Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("Vertical") > 0
-		|| Input.GetKey(KeyCode.S) == true || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("Vertical") < 0)
+		else if (Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("Vertical") > 0
+		 || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("Vertical") < 0)
 		{
 			move = 1.0f;
 		}
 
 		//ˆÚ“®ˆ—
-		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0)
+		if (Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("Horizontal") < 0)
 		{
 			pos.x += -1 * speed * move;
 		}
-		if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0)
+		if ( Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("Horizontal") > 0)
 		{
 			pos.x += 1 * speed * move;
 		}
-		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("Vertical") > 0)
+		if (Input.GetKey(KeyCode.UpArrow) || Input.GetAxis("Vertical") > 0)
 		{
 			pos.z += 1 * speed * move;
 		}
-		if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("Vertical") < 0)
+		if (Input.GetKey(KeyCode.DownArrow) || Input.GetAxis("Vertical") < 0)
 		{
 			pos.z += -1 * speed * move;
 		}

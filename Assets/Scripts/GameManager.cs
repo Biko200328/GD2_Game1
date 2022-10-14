@@ -45,14 +45,22 @@ public class GameManager : MonoBehaviour
 
 	public void ProtoGimmickOn()
 	{
-		//”à‚ğÁ‚·
-		if(wall.activeInHierarchy == true)wall.SetActive(false);
+		//”à‚ğ‰º~‚³‚¹‚é
+		Vector3 wallPos = wall.transform.position;
+		wallPos.y -= 0.02f;
+		//‰º~ãŒÀ‚ğ‚Â‚¯‚é
+		if (wallPos.y <= -1.23f)
+		{
+			wallPos.y = -1.23f;
+		}
+		//”’l‚ğ–ß‚·
+		wall.transform.position = wallPos;
 
 		//â‚ğã¸‚³‚¹‚é
 		Vector3 slopePos = slope.transform.position;
 		slopePos.y += 0.02f;
 		//ã¸ãŒÀ‚ğ‚Â‚¯‚é
-		if(slopePos.y >= 1.3)
+		if(slopePos.y >= 1.3f)
 		{
 			slopePos.y = 1.3f;
 		}
@@ -62,14 +70,24 @@ public class GameManager : MonoBehaviour
 
 	public void ProtoGimmickOff()
 	{
-		//”à‚ğoŒ»‚³‚¹‚é
-		if (wall.activeInHierarchy == false) wall.SetActive(true);
+		//”à‚ğã¸‚³‚¹‚é
+		Vector3 wallPos = wall.transform.position;
+		wallPos.y += 0.02f;
+		//‰º~ãŒÀ‚ğ‚Â‚¯‚é
+		if (wallPos.y >= 1.28f)
+		{
+			wallPos.y = 1.28f;
+		}
+		//”’l‚ğ–ß‚·
+		wall.transform.position = wallPos;
+
+
 
 		//â‚ğ‰º~‚³‚¹‚é
 		Vector3 slopePos = slope.transform.position;
 		slopePos.y -= 0.02f;
 		//‰º~ãŒÀ‚ğ‚Â‚¯‚é
-		if (slopePos.y <= -1.27)
+		if (slopePos.y <= -1.27f)
 		{
 			slopePos.y = -1.27f;
 		}
