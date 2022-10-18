@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 	//プレイヤーの移動スピード
 	[SerializeField] private float speed;
 
-	GameManager gameManager;
+	ControllerCheck controllerCheck;
 
 	float inputHorizontal;
 	float inputVertical;
@@ -18,12 +18,12 @@ public class PlayerController : MonoBehaviour
 		rb = GetComponent<Rigidbody>();
 
 		GameObject managerObj = GameObject.Find("GameManager");
-		gameManager = managerObj.GetComponent<GameManager>();
+		controllerCheck = managerObj.GetComponent<ControllerCheck>();
 	}
 
 	void Update()
 	{
-		if(gameManager.isConnection == false)
+		if(controllerCheck.isConnection == false)
 		{
 			inputHorizontal = Input.GetAxisRaw("Horizontal");
 			inputVertical = Input.GetAxisRaw("Vertical");

@@ -8,7 +8,7 @@ public class CameraMove : MonoBehaviour
 	GameObject targetObj;
 	Vector3 targetPos;
 
-	GameManager gameManager;
+	ControllerCheck controllerCheck;
 
 	void Start()
 	{
@@ -16,7 +16,7 @@ public class CameraMove : MonoBehaviour
 		targetPos = targetObj.transform.position;
 
 		GameObject managerObj = GameObject.Find("GameManager");
-		gameManager = managerObj.GetComponent<GameManager>();
+		controllerCheck = managerObj.GetComponent<ControllerCheck>();
 	}
 
 	void Update()
@@ -27,7 +27,7 @@ public class CameraMove : MonoBehaviour
 
 		float inputX = 0f, inputY = 0f,power = 0f;
 
-		if(gameManager.isConnection == false)
+		if(controllerCheck.isConnection == false)
 		{
 			power = 200f;
 			// マウスの左クリックを押している間

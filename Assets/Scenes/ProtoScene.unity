@@ -1598,6 +1598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1835406317}
   - component: {fileID: 1835406316}
+  - component: {fileID: 1835406318}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1620,7 +1621,6 @@ MonoBehaviour:
   isProto: 0
   wall: {fileID: 1037054935}
   slope: {fileID: 304966124}
-  isConnection: 0
   describe: {fileID: 1623518369}
 --- !u!4 &1835406317
 Transform:
@@ -1636,6 +1636,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1835406318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835406315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 037ff54fb22c44a4d989a5fc58d06aba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isConnection: 0
 --- !u!1 &2044662378
 GameObject:
   m_ObjectHideFlags: 0
