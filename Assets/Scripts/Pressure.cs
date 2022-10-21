@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UI;
 using UnityEngine;
 
 public class Pressure : MonoBehaviour
@@ -53,5 +54,12 @@ public class Pressure : MonoBehaviour
 			//ì“®‚ğ’â~
 			gameManager.isProto = false;
 		}
+	}
+
+	private void hoge()
+	{
+		CanvasRenderer cr = GetComponent<CanvasRenderer>();
+		Material mat = cr.GetMaterial(0);
+		mat.SetFloat("_Value", 0.5f);
 	}
 }

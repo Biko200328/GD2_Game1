@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
 	float inputVertical;
 	Rigidbody rb;
 
+	[SerializeField] Rigidbody ballRb;
+	[SerializeField] float dragPower;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
@@ -27,11 +30,27 @@ public class PlayerController : MonoBehaviour
 		{
 			inputHorizontal = Input.GetAxisRaw("Horizontal");
 			inputVertical = Input.GetAxisRaw("Vertical");
+			if(Input.GetKey(KeyCode.Space))
+			{
+				ballRb.drag = dragPower;
+			}
+			else
+			{
+				ballRb.drag = 0f;
+			}
 		}
 		else
 		{
 			inputHorizontal = Input.GetAxis("cHorizontalL");
 			inputVertical = Input.GetAxis("cVerticalL");
+			if(Input.GetButton("buttonX"))
+			{
+				ballRb.drag = dragPower;
+			}
+			else
+			{
+				ballRb.drag = 0f;
+			}
 		}
 	}
 
