@@ -23,7 +23,7 @@ public class StageSelect : MonoBehaviour
 
 		if (controllerCheck)
 		{
-			if (Input.GetButtonDown("buttonX"))
+			if (Input.GetButtonDown("buttonA"))
 			{
 				//ƒV[ƒ“Ø‚è‘Ö‚¦
 				sceneController.sceneChange("ProtoScene");

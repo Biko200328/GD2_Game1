@@ -32,7 +32,7 @@ public class GameManagerTitle : MonoBehaviour
 		}
 		else
 		{
-			if (Input.GetButtonDown("buttonX"))
+			if (Input.GetButtonDown("buttonA"))
 			{
 				//ƒV[ƒ“Ø‚è‘Ö‚¦
 				sceneController.sceneChange("StageSelect");
