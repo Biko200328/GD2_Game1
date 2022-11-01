@@ -7,7 +7,7 @@ public class StageSelect : MonoBehaviour
 	ControllerCheck controllerCheck;
 	SceneController sceneController;
 
-	[SerializeField] int isStage = 0;
+	public int isStage = 0;
 
 	// Start is called before the first frame update
 	void Start()
@@ -37,9 +37,9 @@ public class StageSelect : MonoBehaviour
 			if(Input.GetKeyDown(KeyCode.RightArrow))
 			{
 				isStage++;
-				if(isStage >= 6)
+				if(isStage >= 5)
 				{
-					isStage = 6;
+					isStage = 5;
 				}
 			}
 			else if(Input.GetKeyDown(KeyCode.LeftArrow))
@@ -57,31 +57,27 @@ public class StageSelect : MonoBehaviour
 				{
 					case 0:
 						//シーン切り替え
-						sceneController.sceneChange("ProtoScene");
+						sceneController.sceneChange("Stage01");
 						break;
 					case 1:
 						//シーン切り替え
-						
+						sceneController.sceneChange("Stage02");
 						break;
 					case 2:
 						//シーン切り替え
-
+						sceneController.sceneChange("Stage03");
 						break;
 					case 3:
 						//シーン切り替え
-
+						sceneController.sceneChange("Stage04");
 						break;
 					case 4:
 						//シーン切り替え
-
+						sceneController.sceneChange("Stage05");
 						break;
 					case 5:
 						//シーン切り替え
-
-						break;
-					case 6:
-						//シーン切り替え
-
+						sceneController.sceneChange("Stage06");
 						break;
 				}
 				
