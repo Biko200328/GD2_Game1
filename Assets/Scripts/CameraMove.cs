@@ -15,7 +15,7 @@ public class CameraMove : MonoBehaviour
 		targetObj = GameObject.Find("TargetObj");
 		targetPos = targetObj.transform.position;
 
-		GameObject managerObj = GameObject.Find("GameManager");
+		GameObject managerObj = GameObject.Find("StageManager");
 		controllerCheck = managerObj.GetComponent<ControllerCheck>();
 	}
 

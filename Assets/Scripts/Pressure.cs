@@ -12,7 +12,7 @@ public class Pressure : MonoBehaviour
 		//‚à‚µgameManager‚É‰½‚à“ü‚Á‚Ä‚¢‚È‚©‚Á‚½‚ç(null)
 		if(gameManager == null)
 		{
-			GameObject managerObj = GameObject.Find("GameManager");
+			GameObject managerObj = GameObject.Find("StageManager");
 			gameManager = managerObj.GetComponent<GameManager>();
 		}
 	}

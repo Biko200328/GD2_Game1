@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 	{
 		rb = GetComponent<Rigidbody>();
 
-		GameObject managerObj = GameObject.Find("GameManager");
+		GameObject managerObj = GameObject.Find("StageManager");
 		controllerCheck = managerObj.GetComponent<ControllerCheck>();
 	}
 
