@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,12 +17,21 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] Rigidbody ballRb;
 	[SerializeField] float dragPower;
 
+	SceneController sceneController;
+	[SerializeField] float deadY = -10f;
+	bool isDead = false;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
 
 		GameObject managerObj = GameObject.Find("StageManager");
 		controllerCheck = managerObj.GetComponent<ControllerCheck>();
+
+		GameObject camera = GameObject.Find("Main Camera");
+		sceneController = camera.GetComponent<SceneController>();
+
+		isDead = false;
 	}
 
 	void Update()
@@ -51,6 +61,13 @@ public class PlayerController : MonoBehaviour
 			{
 				ballRb.drag = 0f;
 			}
+		}
+
+		if(this.transform.position.y <= deadY && !isDead)
+		{
+			isDead = true;
+			string activeSceneName = SceneManager.GetActiveScene().name;
+			sceneController.sceneChange(activeSceneName);
 		}
 	}
 
