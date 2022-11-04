@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+	//たまーにボールの上に乗るバグがある
+
 	//プレイヤーの移動スピード
 	[SerializeField] private float speed;
 
