@@ -6,14 +6,17 @@ using UnityEngine.SceneManagement;
 public class TargetMove : MonoBehaviour
 {
 	GameObject player;
-
+	GameObject ball;
 	void Start()
 	{
 		player = GameObject.Find("Player");
+		ball = GameObject.Find("Ball");
 	}
 
 	void Update()
 	{
-		this.transform.position = player.transform.position;
+		var a = player.transform.position - ball.transform.position;
+		transform.position = player.transform.position - a / 2;
+		//this.transform.position = obj.transform.position;
 	}
 }
