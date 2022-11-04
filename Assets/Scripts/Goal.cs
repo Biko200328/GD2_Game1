@@ -5,6 +5,7 @@ using UnityEngine;
 public class Goal : MonoBehaviour
 {
     [SerializeField] private GameObject Clear;
+
     // Start is called before the first frame update
     void Start()
     {
