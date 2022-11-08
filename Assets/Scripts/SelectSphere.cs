@@ -22,27 +22,23 @@ public class SelectSphere : MonoBehaviour
 		{
 			case 0:
 				potision.x = -7.8f;
-				potision.y = 2.0f;
+				potision.y = 2.4f;
 				break;
 			case 1:
 				potision.x = -1.8f;
-				potision.y = 2.0f;
+				potision.y = 2.4f;
 				break;
 			case 2:
 				potision.x = 4.2f;
-				potision.y = 2.0f;
+				potision.y = 2.4f;
 				break;
 			case 3:
-				potision.x = -7.8f;
-				potision.y = -2.87f;
+				potision.x = -5.18f;
+				potision.y = -1.8f;
 				break;
 			case 4:
-				potision.x = -1.8f;
-				potision.y = -2.87f;
-				break;
-			case 5:
-				potision.x = 4.2f;
-				potision.y = -2.87f;
+				potision.x = 1.6f;
+				potision.y = -1.8f;
 				break;
 		}
 
