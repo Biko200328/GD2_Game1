@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class CameraMove : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class CameraMove : MonoBehaviour
 	Vector3 targetPos;
 
 	ControllerCheck controllerCheck;
+
+	// 前方の基準となるローカル空間ベクトル
+	[SerializeField] private Vector3 _forward = Vector3.forward;
 
 	void Start()
 	{
@@ -22,7 +26,8 @@ public class CameraMove : MonoBehaviour
 	void Update()
 	{
 		// targetの移動量分、自分（カメラ）も移動する
-		transform.position += targetObj.transform.position - targetPos;
+		// そのまま動くとプレイヤーが見えなくなるのでとりあえず移動速度を1/2に
+		transform.position += (targetObj.transform.position - targetPos) / 2;
 		targetPos = targetObj.transform.position;
 
 		float inputX = 0f, inputY = 0f,power = 0f;
@@ -40,6 +45,7 @@ public class CameraMove : MonoBehaviour
 		}
 		else
 		{
+			//コントローラー
 			power = 100f;
 			inputX = Input.GetAxis("cHorizontalR");
 			inputY = Input.GetAxis("cVerticalR");
@@ -49,5 +55,18 @@ public class CameraMove : MonoBehaviour
 		transform.RotateAround(targetPos, Vector3.up, inputX * Time.deltaTime * power);
 		// カメラの垂直移動（※角度制限なし、必要が無ければコメントアウト）
 		transform.RotateAround(targetPos, transform.right, -inputY * Time.deltaTime * power);
+
+
+		//注視点が動いた時に向きを自動で変えてあげる
+		// ターゲットへの向きベクトル計算
+		var dir = targetPos - this.transform.position;
+
+		// ターゲットの方向への回転
+		var lookAtRotation = Quaternion.LookRotation(dir, Vector3.up);
+		// 回転補正
+		var offsetRotation = Quaternion.FromToRotation(_forward, Vector3.forward);
+
+		// 回転補正→ターゲット方向への回転の順に、自身の向きを操作する
+		this.transform.rotation = lookAtRotation * offsetRotation;
 	}
 }
