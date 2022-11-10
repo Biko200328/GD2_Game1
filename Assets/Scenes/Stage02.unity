@@ -350,6 +350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 490948853}
   - component: {fileID: 490948852}
+  - component: {fileID: 490948854}
   m_Layer: 0
   m_Name: StageManager
   m_TagString: Untagged
@@ -384,6 +385,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &490948854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490948851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57182cf2aef244409b2238843646ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &634231144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -935,6 +948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4265f7a491f4734196ab3d289d4b89e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _forward: {x: 0, y: 0, z: 1}
 --- !u!1001 &1522347241
 PrefabInstance:
   m_ObjectHideFlags: 0

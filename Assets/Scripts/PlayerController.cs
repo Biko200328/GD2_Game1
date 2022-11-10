@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 			}
 			else
 			{
-				ballRb.drag = 0f;
+				ballRb.drag = 0;
 			}
 		}
 		else
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
 			}
 			else
 			{
-				ballRb.drag = 0f;
+				ballRb.drag = 0;
 			}
 		}
 

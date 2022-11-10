@@ -34,21 +34,26 @@ public class StageSelect : MonoBehaviour
 		}
 		else
 		{
-			if(Input.GetKeyDown(KeyCode.RightArrow))
+			if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
 			{
 				isStage++;
-				if(isStage >= 5)
+				if(isStage >= 4)
 				{
-					isStage = 5;
+					isStage = 4;
 				}
 			}
-			else if(Input.GetKeyDown(KeyCode.LeftArrow))
+			else if(Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
 			{
 				isStage--;
 				if (isStage <= 0)
 				{
 					isStage = 0;
 				}
+			}
+
+			if(Input.GetKeyDown(KeyCode.Escape))
+			{
+				sceneController.sceneChange("TitleScene");
 			}
 
 			if (Input.GetKeyDown(KeyCode.Space))
@@ -65,19 +70,15 @@ public class StageSelect : MonoBehaviour
 						break;
 					case 2:
 						//シーン切り替え
-						sceneController.sceneChange("Stage03");
+						sceneController.sceneChange("Stage04");
 						break;
 					case 3:
 						//シーン切り替え
-						sceneController.sceneChange("Stage04");
+						sceneController.sceneChange("Stage03");
 						break;
 					case 4:
 						//シーン切り替え
 						sceneController.sceneChange("Stage05");
-						break;
-					case 5:
-						//シーン切り替え
-						sceneController.sceneChange("Stage06");
 						break;
 				}
 				
