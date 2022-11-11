@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7081854464468687668}
   - component: {fileID: 7081854464468687670}
   - component: {fileID: 7081854464468687669}
+  - component: {fileID: 6602188188366043289}
   m_Layer: 5
   m_Name: stageselect
   m_TagString: Untagged
@@ -79,6 +80,19 @@ MonoBehaviour:
     m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: "Abutton\u3092\u62BC\u3057\u3066\u30B9\u30C6\u30FC\u30B8\u30BB\u30EC\u30AF\u30C8\u3078"
+--- !u!114 &6602188188366043289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7081854464468687675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a75292b90fda57d4b9383bf6dd53ce34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 7081854464468687669}
 --- !u!1 &7081854464774777894
 GameObject:
   m_ObjectHideFlags: 0
