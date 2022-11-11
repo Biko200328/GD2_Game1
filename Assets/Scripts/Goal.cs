@@ -4,25 +4,28 @@ using UnityEngine;
 
 public class Goal : MonoBehaviour
 {
-    [SerializeField] private GameObject Clear;
+	[SerializeField] private GameObject Clear;
+	PlayerController playerController;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	// Start is called before the first frame update
+	void Start()
+	{
+		GameObject player = GameObject.Find("Player");
+		playerController = player.GetComponent<PlayerController>();
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	// Update is called once per frame
+	void Update()
+	{
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Ball")
-        {
-            Clear.SetActive(true);
-        }
-    }
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if (other.gameObject.tag == "Ball")
+		{
+			Clear.SetActive(true);
+			playerController.isClear = true;
+		}
+	}
 }

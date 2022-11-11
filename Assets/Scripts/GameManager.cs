@@ -15,9 +15,10 @@ public class GameManager : MonoBehaviour
 	//坂
 	[SerializeField] private GameObject slope;
 
-	[SerializeField] Text describe;
-
 	ControllerCheck controllerCheck;
+
+	PlayerController playerController;
+	public AudioSource bgm;
 
 	// Start is called before the first frame update
 	void Start()
@@ -26,20 +27,14 @@ public class GameManager : MonoBehaviour
 		Application.targetFrameRate = 60;
 
 		controllerCheck = gameObject.GetComponent<ControllerCheck>();
+
+		GameObject player = GameObject.Find("Player");
+		playerController = player.GetComponent<PlayerController>();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		if(controllerCheck.isConnection)
-		{
-			describe.text = "Lスティックでプレイヤー移動\r\nRスティックでカメラ移動";
-		}
-		else
-		{
-			describe.text = "十字もしくはWASDでプレイヤー移動\r\n左クリック長押しでカメラ操作";
-		}
-
 		//on(感圧版にのっている)時
 		if (isProto == true)
 		{
@@ -57,6 +52,11 @@ public class GameManager : MonoBehaviour
 		if (Input.GetKeyDown(KeyCode.R))
 		{
 			SceneReset();
+		}
+
+		if (playerController.isClear == true)
+		{
+			bgm.Stop();
 		}
 	}
 

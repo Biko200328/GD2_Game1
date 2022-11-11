@@ -10,6 +10,8 @@ public class StageSelectManager : MonoBehaviour
 	public GameObject text2;
 	public GameObject text3;
 	public GameObject text4;
+	public GameObject text5;
+	public GameObject text6;
 
 	// Start is called before the first frame update
 	void Start()
@@ -24,15 +26,19 @@ public class StageSelectManager : MonoBehaviour
 		{
 			text1.SetActive(true);
 			text2.SetActive(true);
+			text5.SetActive(true);
 			text3.SetActive(false);
 			text4.SetActive(false);
+			text6.SetActive(false);
 		}
 		else
 		{
 			text1.SetActive(false);
 			text2.SetActive(false);
+			text5.SetActive(false);
 			text3.SetActive(true);
 			text4.SetActive(true);
+			text6.SetActive(true);
 		}
 	}
 }
