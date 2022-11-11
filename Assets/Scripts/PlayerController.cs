@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
 
 	public bool isClear;
 
+	public AudioSource select;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody>();
@@ -83,6 +85,7 @@ public class PlayerController : MonoBehaviour
 			{
 				if (Input.GetKey(KeyCode.Space))
 				{
+					select.Play();
 					sceneController.sceneChange("StageSelect");
 				}
 			}
@@ -90,6 +93,7 @@ public class PlayerController : MonoBehaviour
 			{
 				if (Input.GetButton("buttonA"))
 				{
+					select.Play();
 					sceneController.sceneChange("StageSelect");
 				}
 			}

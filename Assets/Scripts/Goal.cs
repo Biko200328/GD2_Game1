@@ -7,6 +7,8 @@ public class Goal : MonoBehaviour
 	[SerializeField] private GameObject Clear;
 	PlayerController playerController;
 
+	public AudioSource clearBGM;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -24,6 +26,7 @@ public class Goal : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Ball")
 		{
+			clearBGM.Play();
 			Clear.SetActive(true);
 			playerController.isClear = true;
 		}
